@@ -3,6 +3,9 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 from knn.knn import knn
+from optimizers.pso import pso
+from problem import problem
+from problem_terminate import problem_terminate
 
 # Read data
 train_path = "data\\urban_land_cover\\train.csv"
