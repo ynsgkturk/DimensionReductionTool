@@ -34,3 +34,7 @@ print(f"Miss classification Error: %.2f" % error_rate1)
 error_rate2 = knn(X_train, y_train_encoded, X_test, y_test_encoded, 5, np.ones((1, 147)))
 
 print(f"Miss classification Error: %.2f" % error_rate2)
+
+g_best, history = pso(5, problem, problem_terminate, X_train, y_train_encoded, X_test, y_test_encoded)
+
+print(f"Best Error: %.2f" % g_best["fitness"])
