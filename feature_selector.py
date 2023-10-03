@@ -12,9 +12,7 @@ def feature_selector(train, test, weights, threshold=0.1):
 
     indices = weights >= threshold
 
-    print(indices)
-
     new_train = train[:, indices]
-    new_test = test[indices]
-    print(new_train.shape)
-    print(new_test.shape)
+    new_test = test[:, indices]
+
+    return new_train, new_test
