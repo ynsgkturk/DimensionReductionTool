@@ -38,19 +38,19 @@ def pso(k, problem, problem_terminate, X_train, y_train, X_test, y_test):
     velocities = np.zeros((num_particles, dim))
 
     # store the best candidate
-    g_best = {"position": np.array([]), "fitness": 10}
+    g_best = {"weights": np.array([]), "fitness": 10}
     history = []
 
     # Initialize the particles and p_best
     for i in range(num_particles):
-        position = np.random.rand(1, dim)
+        weights = np.random.rand(1, dim)
 
-        fitness = problem(position, X_train, y_train, X_test, y_test, k)
+        fitness = problem(weights, X_train, y_train, X_test, y_test, k)
 
-        particles[i].update_particle(position, velocities[i, :], fitness)
+        particles[i].update_particle(weights, velocities[i, :], fitness)
 
         if fitness < g_best["fitness"]:
-            g_best["position"] = position
+            g_best["weights"] = weights
             g_best["fitness"] = fitness
 
     history.append(g_best["fitness"])
@@ -62,7 +62,7 @@ def pso(k, problem, problem_terminate, X_train, y_train, X_test, y_test):
             # Update the velocity
             new_velocity = w * particles[j].velocity \
                            + c1 * np.random.rand() * (particles[j].best_position - particles[j].position) \
-                           + c2 * np.random.rand() * (g_best["position"] - particles[j].position)
+                           + c2 * np.random.rand() * (g_best["weights"] - particles[j].position)
             # Update the position
             new_particle = particles[j].position + new_velocity
             # Ensure the particles stay within the bounds
@@ -76,7 +76,7 @@ def pso(k, problem, problem_terminate, X_train, y_train, X_test, y_test):
 
             # Update the p_best and g_best if necessary
             if cost < g_best["fitness"]:
-                g_best["position"] = new_particle
+                g_best["weights"] = new_particle
                 g_best["fitness"] = cost
         # Keep track of the best solution found at each iteration
         history.append(g_best["fitness"])
