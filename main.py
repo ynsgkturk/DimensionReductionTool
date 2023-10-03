@@ -42,7 +42,6 @@ g_best, history = pso(5, problem, problem_terminate, X_train, y_train_encoded, X
 print(f"Best Error: %.2f" % g_best["fitness"])
 
 # Dimension reduction
-print(g_best['weights'][0])
-new_train,new_test = feature_selector(X_train, X_test, g_best['weights'][0])
+new_train, new_test = feature_selector(X_train, X_test, g_best['weights'][0])
 
 print(new_train.shape, new_test.shape)
