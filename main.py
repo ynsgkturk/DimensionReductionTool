@@ -6,6 +6,7 @@ from knn.knn import knn
 from optimizers.pso import pso
 from problem import problem
 from problem_terminate import problem_terminate
+from feature_selector import feature_selector
 
 # Read data
 train_path = "data\\urban_land_cover\\train.csv"
@@ -41,4 +42,7 @@ g_best, history = pso(5, problem, problem_terminate, X_train, y_train_encoded, X
 print(f"Best Error: %.2f" % g_best["fitness"])
 
 # Dimension reduction
+print(g_best['weights'][0])
+new_train,new_test = feature_selector(X_train, X_test, g_best['weights'][0])
 
+print(new_train.shape, new_test.shape)
