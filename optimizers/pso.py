@@ -46,8 +46,8 @@ def pso(k, problem, problem_terminate, X_train, y_train, X_test, y_test):
     """
     Particle Swarm Optimization (PSO) algorithm.
     :param k: K-neighbor value for K-nn.
-    :param problem: Function for setting problem variables.
-    :param problem_terminate: Function to evaluate position.
+    :param problem: Function to evaluate position.
+    :param problem_terminate: Function for setting problem variables.
     :param X_train: Train dataset.
     :param y_train: Target values for train.
     :param X_test: Test dataset.
