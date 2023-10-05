@@ -38,14 +38,14 @@ print(f"Miss classification Error: %.2f" % error_rate2)
 
 g_best, history = pso(5, problem, problem_terminate, X_train, y_train_encoded, X_test, y_test_encoded)
 
-# Best mis classification error with weights
+# Best miss classification error with weights
 print(f"Best Error: %.2f" % g_best["fitness"])
 
 # Dimension reduction
 new_train, new_test = feature_selector(X_train, X_test, g_best['weights'][0])
-
 print(new_train.shape, new_test.shape)
 
+# Get the error after dropping minor features
 error_rate_new = knn(new_train, y_train_encoded, new_test, y_test_encoded, 5)
 print(f"Miss classification error after dropping minor features: %.2f" % error_rate_new)
 
