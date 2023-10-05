@@ -45,3 +45,6 @@ print(f"Best Error: %.2f" % g_best["fitness"])
 new_train, new_test = feature_selector(X_train, X_test, g_best['weights'][0])
 
 print(new_train.shape, new_test.shape)
+
+error_rate_new = knn(new_train, y_train_encoded, new_test, y_test_encoded, 5)
+print(f"Miss classification error after dropping minor features: %.2f" % error_rate_new)
