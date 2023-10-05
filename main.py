@@ -48,3 +48,7 @@ print(new_train.shape, new_test.shape)
 
 error_rate_new = knn(new_train, y_train_encoded, new_test, y_test_encoded, 5)
 print(f"Miss classification error after dropping minor features: %.2f" % error_rate_new)
+
+
+g_best_new, history_new = pso(5, problem, problem_terminate, new_train, y_train_encoded, new_test, y_test_encoded)
+print(f"Miss classification error after dropping minor features: %.2f" % g_best_new["fitness"])
