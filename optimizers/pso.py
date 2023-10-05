@@ -2,6 +2,19 @@ import numpy as np
 
 
 class Particle:
+    """
+    Represents a particle in a Particle Swarm Optimization (PSO) algorithm.
+
+    Attributes:
+        position (list): The current position of the particle in the search space.
+        velocity (list): The current velocity of the particle.
+        best_position (list): The best position the particle has achieved so far.
+        best_fitness (float): The fitness value corresponding to the personal best position.
+        fitness (float): The fitness value of the current position.
+
+    Methods:
+        update_particle
+    """
 
     def __init__(self):
         self.position = []  # particle position
@@ -13,6 +26,13 @@ class Particle:
         # I use 10 because knn returns values between 0-1
 
     def update_particle(self, position, velocity, fitness):
+        """
+        Updates the velocity, position and best value of the particle based on given values.
+        :param position: New position of the particle in the search space.
+        :param velocity: New velocity of the particle.
+        :param fitness: New fitness value of the current position.
+        :return:
+        """
         self.position = position
         self.velocity = velocity
         self.fitness = fitness
@@ -25,6 +45,13 @@ class Particle:
 def pso(k, problem, problem_terminate, X_train, y_train, X_test, y_test):
     """
     Particle Swarm Optimization (PSO) algorithm.
+    :param k: K-neighbor value for K-nn.
+    :param problem: Function for setting problem variables.
+    :param problem_terminate: Function to evaluate position.
+    :param X_train: Train dataset.
+    :param y_train: Target values for train.
+    :param X_test: Test dataset.
+    :param y_test: Target values for test.
 
     :return: g_best: the best population a dict contains the best population and its fitness,
     history: a list of the best solutions found at each iteration
