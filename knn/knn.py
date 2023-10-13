@@ -2,11 +2,11 @@ import numpy as np
 
 
 def knn(X_train, y_train, X_test, y_test, k, weights=None):
-    # Compute Euclidean distances between each test point and all training points
-    # Calculate the weighted Euclidean distances between each test point and all training points
     if weights is None:
+        # Compute Euclidean distances between each test point and all training points
         distances = np.sqrt(np.sum((X_train - X_test[:, np.newaxis]) ** 2, axis=2))
     else:
+        # Calculate the weighted Euclidean distances between each test point and all training points
         squared_diff = (X_train - X_test[:, np.newaxis]) ** 2
         weighted_squared_diff = squared_diff * weights
         distances = np.sqrt(np.sum(weighted_squared_diff, axis=2))
