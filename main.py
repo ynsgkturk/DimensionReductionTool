@@ -16,13 +16,8 @@ X_train, y_train, X_test, y_test = read_data(train_path, test_path)
 error_rate1 = knn(X_train, y_train, X_test, y_test, 5)
 print(f"Miss classification Error: %.2f" % error_rate1)
 
-error_rate2 = knn(X_train, y_train, X_test, y_test, 5, np.ones((1, 147)))
-print(f"Miss classification Error: %.2f" % error_rate2)
-
 g_best, history = pso(5, problem, problem_terminate, X_train, y_train, X_test, y_test)
-
-# Best miss classification error with weights
-print(f"Best Error: %.2f" % g_best["fitness"])
+print(f"Best Error Found: %.2f" % g_best["fitness"])
 
 # Dimension reduction
 new_train, new_test = feature_selector(X_train, X_test, g_best['weights'][0])
