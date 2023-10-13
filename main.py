@@ -1,5 +1,3 @@
-import numpy as np
-
 from feature_selector import feature_selector
 from knn.knn import knn
 from optimizers.pso import pso
