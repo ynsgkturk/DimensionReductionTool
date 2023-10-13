@@ -11,7 +11,7 @@ def problem_terminate(dimension):
     ub: Upper bound array
     """
     n = 25
-    max_fe = 300
+    max_fe = 1200
     lb = np.zeros((1, dimension))
     ub = np.ones((1, dimension))
 
