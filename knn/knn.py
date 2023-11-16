@@ -1,7 +1,9 @@
 import numpy as np
 
 
-def knn(X_train, y_train, X_test, y_test, k, weights=None):
+def knn(X_train, y_train, X_test, y_test, k, weights=None, random_state = 42):
+    np.random.seed(random_state)
+
     if weights is None:
         # Compute Euclidean distances between each test point and all training points
         distances = np.sqrt(np.sum((X_train - X_test[:, np.newaxis]) ** 2, axis=2))
