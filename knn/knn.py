@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def knn(X_train, y_train, X_test, y_test, k, weights=None, random_state = 42):
+def knn(X_train, y_train, X_test, y_test, k, weights=None, random_state=42):
     np.random.seed(random_state)
 
     if weights is None:
