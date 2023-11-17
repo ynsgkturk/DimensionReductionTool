@@ -14,7 +14,6 @@ import pandas as pd
 from scipy.io import loadmat
 
 from feature_selector import feature_selector
-from knn.knn import knn
 from optimizers.pso import pso
 from problem import problem
 from problem_terminate import problem_terminate
@@ -48,7 +47,7 @@ def get_model_accuracy(models, train, test):
             scores[label] = score
         else:
             error_rate = model(x_train, y_train, x_test, y_test, 5)
-            scores[label] = 1-error_rate
+            scores[label] = 1 - error_rate
 
     return scores
 
@@ -72,7 +71,7 @@ def main():
 
     # Get scores after dimension reduction
     scores_pso = get_model_accuracy(models, (new_train, y_train),
-                                      (new_test, y_test))
+                                    (new_test, y_test))
 
     # FDB-AOA
     fdb_aoa_weights = loadmat(r'weights\weights.mat')
@@ -85,13 +84,12 @@ def main():
                                     (new_test, y_test))
 
     scores = pd.DataFrame({'model': scores.keys(),
-                           'score': scores.values() ,
+                           'score': scores.values(),
                            'pso_score': scores_pso.values(),
                            'fdb_aoa_score': scores_aoa.values()})
 
     with pd.ExcelWriter('results.xlsx', engine='xlsxwriter') as writer:
         scores.to_excel(writer, sheet_name='Scores', index=False)
-
 
 
 if __name__ == '__main__':
