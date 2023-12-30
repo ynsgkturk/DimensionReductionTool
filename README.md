@@ -45,7 +45,7 @@ Table 2. Accuracies of Machine Learning Models
 According to the Table 2;
 * There's significant improvement on KNN algorithm.
 * Random Forest is almost same with %90 fewer features.
-* With %90 (133) fewer features accuracies close to each other.
+* With 90% (133) fewer features, accuracies are close to each other.
 
 Tablo 4. Extracted Feature Rates
 
