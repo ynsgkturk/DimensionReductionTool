@@ -2,7 +2,7 @@
 
 Dimension reduction in machine learning is crucial for enhanced model efficiency and performance. It accelerates training, mitigates the curse of dimensionality, improves model interpretability, and reduces overfitting. By simplifying complex datasets, dimension reduction facilitates faster and more accurate predictions, making it an essential step in building robust machine learning models.
 
-In this repository I worked on a meta-heuristic dimension reduction algorithm using Particle Swarm Optimization (PSO) and 
+In this repository I worked on a meta-heuristic dimension reduction algorithm using Particle Swarm Optimization (PSO) and FDB-Archimedes Optimization Algorithm (FDB-AOA).
 
 # Particle Swarm Optimization (PSO)
 
